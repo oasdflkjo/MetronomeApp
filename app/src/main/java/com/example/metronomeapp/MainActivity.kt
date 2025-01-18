@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         private const val KEY_BPM = "bpm"
         private const val KEY_VOLUME = "volume"
         private const val DEFAULT_BPM = 180
-        private const val DEFAULT_VOLUME = 100
+        private const val DEFAULT_VOLUME = 50
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

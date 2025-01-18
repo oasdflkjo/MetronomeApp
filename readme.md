@@ -22,24 +22,29 @@ A clean project with MainActivity.kt (your starting point), activity_main.xml (f
 
 # MetronomeApp
 
-A simple yet powerful metronome application for Android that can run simultaneously with other audio apps.
+A precise and reliable metronome application for Android with background playback support and persistent settings.
 
 ## Features
 
-- Basic metronome functionality (adjustable BPM)
+- Accurate BPM timing (40-240 BPM range)
+- Adjustable volume control
 - Background playback support
-- Works simultaneously with other audio apps (e.g., Spotify, Podcast players)
-- Audio focus handling for proper coexistence with other media apps
+- Persistent settings (remembers last used BPM and volume)
+- Low-latency audio using SoundPool
+- Clean, minimalist UI
+- Works simultaneously with other audio apps
+- Proper cleanup when swiped away from recent apps
 
-## Technical Implementation Details
+## Technical Implementation
 
-The app will use:
-- Android AudioTrack API for low-latency audio playback
-- Foreground Service for background operation
-- AudioManager for handling audio focus
-- SharedPreferences for saving user settings
+### Core Components
 
-## Project Structure
+- **SoundPool API**: Used for low-latency audio playback
+- **Foreground Service**: Enables background operation
+- **SharedPreferences**: Stores user settings
+- **Coroutines**: Handles precise timing
+
+### Project Structure
 
 - `app/src/main/java/com/example/metronomeapp/`
   - `MainActivity.kt`: Main UI and controls

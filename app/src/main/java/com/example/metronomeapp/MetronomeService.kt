@@ -32,7 +32,7 @@ class MetronomeService : Service() {
             }
             "STOP" -> {
                 audioEngine.stop()
-                stopForeground(true)
+                stopForeground(STOP_FOREGROUND_REMOVE)
                 stopSelf()
             }
             "UPDATE_BPM" -> {
@@ -91,5 +91,13 @@ class MetronomeService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         audioEngine.release()
+    }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        super.onTaskRemoved(rootIntent)
+        // Stop playback and clean up when app is swiped away
+        audioEngine.stop()
+        stopForeground(STOP_FOREGROUND_REMOVE)
+        stopSelf()
     }
 } 
